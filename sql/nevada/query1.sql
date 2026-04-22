@@ -4,6 +4,7 @@ SELECT
     p.osm_id,
     p.name,
     p.fclass,
+    p.geom,
     c.name AS county_name
 FROM pois AS p
 JOIN adminareas_a AS c
