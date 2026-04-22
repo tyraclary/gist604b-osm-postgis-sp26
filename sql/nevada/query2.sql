@@ -3,7 +3,7 @@
 SELECT
     c.name AS county_name,
     ROUND(
-        SUM(ST_Area(ST_Intersection(l.geom, c.geom)::geography)) / 1000000.0,
+        (SUM(ST_Area(ST_Intersection(l.geom, c.geom)::geography)) / 1000000.0)::numeric,
         2
     ) AS park_area_sq_km
 FROM landuse_a AS l
