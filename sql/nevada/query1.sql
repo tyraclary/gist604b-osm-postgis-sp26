@@ -1,5 +1,4 @@
 -- Purpose: Find restaurants in Clark County, Nevada
-
 SELECT
     p.osm_id,
     p.name,
