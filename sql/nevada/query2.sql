@@ -1,14 +1,10 @@
--- Purpose: Find road features (lines) in Clark County, Nevada
+-- Purpose: Get line features (roads) in Clark County
 
 SELECT
-    l.osm_id,
-    l.name,
-    l.fclass,
-    l.geom,
-    c.name AS county_name
-FROM lines AS l
-JOIN adminareas_a AS c
-    ON ST_Intersects(l.geom, c.geom)
-WHERE c.name = 'Clark County'
-  AND l.fclass IN ('primary', 'secondary', 'tertiary', 'residential')
-ORDER BY l.name;
+    c.osm_id,
+    c.name,
+    c.fclass,
+    c.geom
+FROM clark AS c
+WHERE c.fclass IN ('primary', 'secondary', 'tertiary', 'residential')
+ORDER BY c.name;
