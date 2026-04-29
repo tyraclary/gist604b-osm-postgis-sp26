@@ -1,10 +1,13 @@
--- Purpose: Get line features (roads) in Clark County
+-- Purpose: Get railway line features in Clark County, Nevada
 
 SELECT
-    c.osm_id,
-    c.name,
-    c.fclass,
-    c.geom
-FROM clark AS c
-WHERE c.fclass IN ('primary', 'secondary', 'tertiary', 'residential')
-ORDER BY c.name;
+    r.osm_id,
+    r.name,
+    r.fclass,
+    r.geom,
+    c.name AS county_name
+FROM railways AS r
+JOIN adminareas_a AS c
+    ON ST_Intersects(r.geom, c.geom)
+WHERE c.name = 'Clark County'
+ORDER BY r.name;
