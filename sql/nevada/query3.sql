@@ -1,11 +1,3 @@
--- Purpose: Count restaurants within 500m of major roads by county
-
-WITH major_roads AS (
-    SELECT geom
-    FROM roads
-    WHERE fclass IN ('motorway', 'trunk', 'primary', 'secondary')
-),
-
 -- Purpose: Get land use polygon features in Clark County, Nevada
 
 SELECT
